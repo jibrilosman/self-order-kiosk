@@ -52,6 +52,10 @@ const Order = mongoose.model('order', new mongoose.Schema({
     }
 ));
 
+app.get('/api/', async (req, res) => {
+    res.send("server is running");
+});
+
 app.get('/api/products/seed', async (req, res) => {
     const products = await Product.insertMany(data.products);
     res.send({ products });
