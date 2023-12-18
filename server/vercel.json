@@ -1,9 +1,6 @@
 {
     "version": 2,
-    "env": {
-      "MONGODB_URI": "mongodb+srv://jibril:gJjCLvqgipF63YGU@cluster0.sblumfs.mongodb.net/self_order_kiosk",
-      "PORT": 5000
-    },
+    
     "builds": [
       {
         "src": "server.js", 
