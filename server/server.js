@@ -1,10 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const data = require('./data');
 
 const app = express();
 app.use(express.json());
+app.use(cors(
+    {
+        origin: ['http://self-order-kiosk-server.vercel.app'],
+        methods: ['GET', 'POST'],
+        credentials: true,
+    }
+));
 app.use(express.urlencoded({ extended: true }));
 
 dotenv.config();
