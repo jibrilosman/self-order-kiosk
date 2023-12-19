@@ -6,13 +6,8 @@ const data = require('./data');
 
 const app = express();
 app.use(express.json());
-app.use(cors(
-    {
-        origin: ['http://self-order-kiosk-server.vercel.app'],
-        methods: ['GET', 'POST'],
-        credentials: true,
-    }
-));
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 
 dotenv.config();
@@ -21,12 +16,13 @@ const port = process.env.PORT || 5000;
 
 const DATABASE = process.env.MONGODB_URI;
 
-mongoose.connect(DATABASE, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-
-
+mongoose.connect(DATABASE)
+.then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 
 const Product = mongoose.model('products', new mongoose.Schema({
     name: String,
