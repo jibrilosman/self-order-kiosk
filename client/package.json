@@ -1,6 +1,6 @@
 {
   "name": "the-best-burger",
-  "proxy": "http://127.0.0.1:5000",
+  "proxy": "https://self-order-kiosk.onrender.com",
   "version": "0.1.0",
   "private": true,
   "main": "public/main.js",
