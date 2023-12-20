@@ -6,7 +6,14 @@ const data = require('./data');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: 'https://self-order-kiosk.onrender.com',
+        methods: ['GET', 'POST'],
+        credentials: true,
+
+    }
+));
 
 app.use(express.urlencoded({ extended: true }));
 
