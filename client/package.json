@@ -1,7 +1,7 @@
 {
   "name": "the-best-burger",
-  "proxy": "https://self-order-kiosk.onrender.com",
   "version": "0.1.0",
+  "proxy": "https://self-order-kiosk.onrender.com",
   "private": true,
   "main": "public/main.js",
   "dependencies": {
