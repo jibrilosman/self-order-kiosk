@@ -28,7 +28,7 @@ export const listCategories = async (dispatch) => {
         type: CATEGORY_LIST_REQUEST,
     });
     try {
-        const { data } = await axios.get("https://self-order-kiosk.onrender.com/api/categories");
+        const { data } = await axios.get("/api/categories");
         dispatch({ type: CATEGORY_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({ type: CATEGORY_LIST_FAIL, payload: error.message });
@@ -39,7 +39,7 @@ export const listProducts = async (dispatch, categoryName = '') => {
     dispatch({type: PRODUCT_LIST_REQUEST});
 
     try {
-        const { data } = await axios.get(`https://self-order-kiosk.onrender.com/api/products?category=${categoryName}`);
+        const { data } = await axios.get(`/api/products?category=${categoryName}`);
         return dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     } catch (error) {
         return dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
@@ -76,7 +76,7 @@ export const setPaymentType = (dispatch, paymentType) => {
 export const createOrder = async (dispatch, order) => {
     try {
         dispatch({ type: "ORDER_CREATE_REQUEST", payload: order });
-        const { data } = await axios.post("https://self-order-kiosk.onrender.com/api/orders", order);
+        const { data } = await axios.post("/api/orders", order);
         dispatch({ type: "ORDER_CREATE_SUCCESS", payload: data });
         localStorage.removeItem("orderItems");
         dispatch({ type: "ORDER_CLEAR" });
