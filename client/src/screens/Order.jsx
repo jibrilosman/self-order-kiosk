@@ -73,7 +73,7 @@ const Order = ({ category }) => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("/api/categories");
+      const response = await fetch("https://self-order-kiosk.onrender.com/api/categories");
       const data = await response.json();
       setCategories(data);
     } catch (error) {
@@ -83,7 +83,7 @@ const Order = ({ category }) => {
 
   const fetchProducts = async (categoryName) => {
     try {
-      const response = await fetch(`/api/products?category=${categoryName}`);
+      const response = await fetch(`https://self-order-kiosk.onrender.com/api/products?category=${categoryName}`);
       const data = await response.json();
       setProducts(data);
     } catch (error) {
